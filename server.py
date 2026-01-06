@@ -10,7 +10,7 @@ def index():
 
 
 @app.route("/emotionDetector", methods=["GET"])
-def emotion_detector():
+def emotion_detector_route():
     if "textToAnalyze" not in request.args:
         return jsonify(error_message="Missing 'textToAnalyze' query"), 400
 
