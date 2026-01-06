@@ -1,12 +1,17 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, render_template, jsonify
 from EmotionDetection.emotion_detection import emotion_detector
 
 app = Flask(__name__)
 
 
-@app.route("/emotionDetector", methods=["GET"])
+@app.route("/", methods=["GET"])
 def index():
-    if not "textToAnalyze" in request.args:
+    return render_template("index.html")
+
+
+@app.route("/emotionDetector", methods=["GET"])
+def emotion_detector():
+    if "textToAnalyze" not in request.args:
         return jsonify(error_message="Missing 'textToAnalyze' query"), 400
 
     # Call function
