@@ -32,8 +32,8 @@ def emotion_detector_route():
         return "Invalid text! Please try again!"
 
     message = (
-        f"For the given statement, the system response is 'anger': {
-            response['anger']}, "
+        f"For the given statement, "
+        f"the system response is 'anger': {response['anger']}, "
         f"'disgust': {response['disgust']}, 'fear': {response['fear']} "
         f"'joy': {response['joy']} and 'sadness': {response['sadness']}. "
         f"The dominant emotion is {response['dominant_emotion']}."
